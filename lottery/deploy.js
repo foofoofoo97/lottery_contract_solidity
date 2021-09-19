@@ -3,10 +3,8 @@ const Web3 = require("web3");
 const { interface, bytecode } = require("./compile");
 
 const provider = new HDWalletProvider(
-  "juice bicycle seek common shield hello below angry source share exact mobile",
-  // remember to change this to your own phrase!
-  "https://rinkeby.infura.io/v3/15c1d32581894b88a92d8d9e519e476c"
-  // remember to change this to your own endpoint!
+  "fog vault lab bomb discover miss grit unusual exchange fresh engage laptopfog vault lab bomb discover miss grit unusual exchange fresh engage laptop",
+  "https://rinkeby.infura.io/v3/49365133728c45fd9f0d64f45c920125"
 );
 const web3 = new Web3(provider);
 
@@ -17,7 +15,7 @@ const deploy = async () => {
 
   const result = await new web3.eth.Contract(JSON.parse(interface))
     .deploy({ data: bytecode })
-    .send({ gas: "1000000", from: accounts[0] });
+    .send({ gas: "1000000", from: accounts[0], gasPrice: "5000000000" });
 
   console.log("Contract deployed to", result.options.address);
 };
